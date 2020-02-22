@@ -11,4 +11,6 @@ if (process.env.NODE_ENV === 'development') {
   tron.close();
 
   console.tron = tron;
+
+  console.tron.log('Teste');
 }
