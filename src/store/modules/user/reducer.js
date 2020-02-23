@@ -5,13 +5,17 @@ const INICIAL_STATE = {
 };
 
 export default function user(state = INICIAL_STATE, acttion) {
-  switch (acttion.type) {
-    case '@auth/SIGN_IN_SUCCESS': {
-      return produce(state, draft => {
+  return produce(state, draft => {
+    switch (acttion.type) {
+      case '@auth/SIGN_IN_SUCCESS': {
         draft.profile = acttion.payload.user;
-      });
+        break;
+      }
+      case '@user/UPDATE_PROFILE_SUCCESS': {
+        draft.profile = acttion.payload.profile;
+        break;
+      }
+      default:
     }
-    default:
-      return state;
-  }
+  });
 }
